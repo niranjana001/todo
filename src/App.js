@@ -29,13 +29,13 @@ function App() {
   };
 
   return (
-    <div className='container p-5 d-flex flex-column justify-content-center border rounded mt-5 w-75'>
+    <div className='container p-auto d-flex flex-column justify-content-center border rounded mt-5'>
       <h1 className='text-center'>My ToDo list</h1>
       <div>
         
       </div>
 
-      <div class="input-group mb-3 w-50 m-auto">
+      <div className="input-group mb-3 mx-auto w-100">
         <input 
         type="text" 
         class="form-control" 
@@ -46,17 +46,17 @@ function App() {
         value={todoText}
         />
 
-        <button class="btn btn-primary" type="button" id="button-addon2" onClick={handleAddTodo}>Add ToDo</button>
+        <button className="btn btn-primary" type="button" id="button-addon2" onClick={handleAddTodo}>Add ToDo</button>
       </div>
       <div>
         {todos.map((todo) => (
-          <div key={todo.id} className='d-flex w-50 m-auto justify-content-between align-items-center border p-2'
+          <div key={todo.id} className='d-flex m-auto justify-content-between align-items-center border p-2'
           style={{ backgroundColor: todo.completed ? '#AFE1AF' : 'transparent' }} >
-            <div className='d-flex'>
+            <div className='d-flex align-items-center'>
             <input
               type="checkbox"
               checked={todo.completed}
-              onChange={() => handleToggleTodo(todo.id)}
+              onChange={() => handleToggleTodo(todo.id)}                                          
             />
             <span className='p-2' >
               {todo.text}
@@ -66,7 +66,7 @@ function App() {
           </div>
         ))}
 
-        <div className="w-50 m-auto pt-2">Total Completed Items: {completedCount}</div>
+        <div className=" m-auto pt-2">Total Completed Items: {completedCount}</div>
       </div>
     </div>
   );
